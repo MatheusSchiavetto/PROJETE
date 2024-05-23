@@ -1,0 +1,213 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #f2d99e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    margin-right: 20px;
+}
+
+.profile-link, .logout-link {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Estilo do título do projeto */
+.project-title {
+    width: calc(30% - 40px);
+    margin: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo do botão de compartilhar */
+.share-button {
+    float: right;
+    margin-top: 20px;
+    margin-right: 40px;
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo do canvas */
+.canvas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px) 2fr;
+    gap: 10px;
+    padding: 150px;
+    background-color: #f2d99e;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* Estilo das caixas */
+.box {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Garantir que o conteúdo comece no topo */
+    padding-bottom: 60px; /* Ajuste para garantir espaço para a seção add-note */
+}
+
+.notes-container {
+    overflow-y: auto;
+    flex-grow: 1; /* Permite que as notas preencham o espaço disponível */
+    margin-top: 10px;
+}
+
+/* Estilo do botão de adicionar anotações */
+.add-note {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Ajuste para caixas específicas */
+.box:nth-child(8),
+.box:nth-child(9) {
+    grid-column: span 2;
+    height: 250px;
+}
+
+.box:nth-child(4) {
+    height: 300px;
+}
+
+.box:nth-child(1)
+.box:nth-child(2)
+.box:nth-child(3) {
+    height: 300px;
+}
+
+/* Estilo do modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+}
+
+#note-input {
+    width: 90%;
+    height: 100px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left; /* Alinhar o texto à esquerda */
+    text-indent: 0; /* Remover indentação */
+}
+
+#save-note {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo das notas */
+.note {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+    text-align: left; /* Alinhar o texto à esquerda */
+    text-indent: 0; /* Remover indentação */
+}
+
+.delete-button {
+    background-color: #f2d99e;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 2px 5px;
+    font-size: 12px;
+}

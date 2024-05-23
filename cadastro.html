@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f2d99e;
+        }
+
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px 20px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header-logo img {
+            width: 50px;  /* Define a largura desejada para a imagem */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-name {
+            margin-right: 20px;
+        }
+
+        .profile-link, .logout-link {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin-top: 90px; /* Ajuste a margem superior para não ficar atrás do header */
+            width: 100%;
+        }
+
+        .container .logo {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #234678;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #7c8484;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-link a {
+            color: #234678;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .register-link a:hover {
+            color: #7c8484;
+            text-decoration: underline;
+        }
+
+        .ddd:hover {
+            color: #f2d99e;
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .container .logo {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="Imagens/Lampada.png" alt="Logo"> <!-- Substitua pelo caminho da sua imagem -->
+        </div>
+        <div class="user-info">
+            <span class="user-name"></span>
+            <a href="Login.html" class="profile-link ddd">Login</a>
+            <a href="#" class="logout-link ddd">Home</a>
+        </div>
+    </header>
+    <div class="container">
+        <img src="Imagens/Login.png" alt="Logo" class="logo">
+        <form id="login-form">
+            <h2>Cadastro</h2>
+            <input type="text" placeholder="Nome" required>
+            <input type="text" placeholder="Email" required>
+            <input type="password" placeholder="Senha" required>
+            <input type="password" placeholder="Confirme Senha" required>
+            <input type="submit" value="Cadastrar">
+        </form>
+        <form id="register-form">
+            <div class="register-link">
+                <a href="Login.html">Login</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

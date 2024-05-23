@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lean Canvas</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <div class="user-info">
+            <span class="user-name">NOME DE USUARIO</span>
+            <a href="#" class="profile-link">ACESSAR MEU PERFIL</a>
+            <a href="#" class="logout-link">LOG OUT</a>
+        </div>
+    </header>
+    
+    <main>
+        <input type="text" class="project-title" placeholder="ESCOLHA UM TÍTULO PARA O PROJETO">
+        <button class="share-button">Compartilhar Projeto</button>
+        <div class="canvas">
+            <div class="box" data-title="Parceiros Principais">Parceiros Principais<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Principais Atividades">Principais Atividades<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Proposta de Valor">Proposta de Valor<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Relação Com o Cliente">Relação Com o Cliente<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Segmento de Cliente">Segmento de Cliente<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Principais Recursos">Principais Recursos<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Canais de Vendas">Canais de Vendas<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Estrutura de Custos">Estrutura de Custos<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+            <div class="box" data-title="Fluxo de Receitas">Fluxo de Receitas<div class="add-note">+ Adicionar Anotações</div>
+                <div class="notes-container"></div>
+            </div>
+        </div>
+    </main>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title"></h2>
+            <textarea id="note-input" placeholder="O que você gostaria anotar?"></textarea>
+            <button id="save-note">Salvar Anotação</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("modal");
+    const closeButton = document.querySelector(".close-button");
+    const saveButton = document.getElementById("save-note");
+    const noteInput = document.getElementById("note-input");
+    let currentBox = null;
+
+    document.querySelectorAll(".add-note").forEach(button => {
+        button.addEventListener("click", (e) => {
+            currentBox = e.target.closest('.box');
+            document.getElementById("modal-title").innerText = currentBox.dataset.title;
+            noteInput.value = "";
+            modal.style.display = "block";
+        });
+    });
+
+    closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    saveButton.addEventListener("click", () => {
+        if (currentBox && noteInput.value.trim() !== "") {
+            const note = document.createElement("div");
+            note.className = "note";
+            note.innerText = noteInput.value;
+
+            // Botão de exclusão
+            const deleteButton = document.createElement("button");
+            deleteButton.innerText = "Excluir";
+            deleteButton.className = "delete-button";
+            deleteButton.addEventListener("click", () => {
+                note.remove();
+            });
+
+            // Adiciona o botão de exclusão à nota
+            note.appendChild(deleteButton);
+
+            // Adiciona a nota ao container de notas
+            currentBox.querySelector('.notes-container').appendChild(note);
+
+            modal.style.display = "none";
+        }
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+
+
+
+
+
+
+
+
+function limitarTexto(elemento, limite) {
+    if (elemento.textContent.length > limite) {
+        elemento.textContent = elemento.textContent.slice(100, limite);
+    }
+}
+    </script>
+</body>
+</html>
